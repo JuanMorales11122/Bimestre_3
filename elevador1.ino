@@ -31,12 +31,12 @@ const float velocidad = 0.0343;
 float time;
 float distancia;
 /////
-Stepper motor = Stepper(100,8, 10, 9, 11);
+Stepper motor = Stepper(2048,8, 10, 9, 11);
 LedControl matriz = LedControl(5,7,6,1);
 
 void setup() {
 
-  motor.setSpeed(199);
+  motor.setSpeed(15);
   Serial.begin(9600);
   pinMode(boton2,INPUT);
   pinMode(boton3,INPUT);
