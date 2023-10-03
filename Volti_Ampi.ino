@@ -5,6 +5,7 @@ int entrada1;      // variable que almacena el valor raw (0 a 1023)
 float volt;        // variable que almacena el voltaje (0.0 a 25.0)
 float Sensibilidad=0.185; //sensibilidad en Voltios/Amperio para sensor de 5A
 int contador = 0;
+int contador1 =0;
 int botonResist = 4;
   int   Pin_de_medicion = 5; // Pin analogico 5
   int   R1 = 1000; // Cambiar por el valor de la resistencia conocida (Resistencia de clibracion)
@@ -22,7 +23,8 @@ void setup() {
 
 void loop() {
   if(botonResist == 1){
-contador = 3;
+contador = 0;
+contador1 = 3;
 }
   entrada = analogRead(volti_ampi);        // realizar la lectura
   entrada1 = analogRead(ampi);        // realizar la lectura
@@ -37,7 +39,7 @@ if(contador == 2){
   Serial.print("Corriente: ");
   Serial.println(I,3);
 }
-  if(contador == 3){
+  if(contador1 == 3){
   ohimetro;
   }
 }
