@@ -1,4 +1,7 @@
-const int volti_ampi = A0;   // seleccionar la entrada para el sensor
+float input_volt = 0.0;
+float temp=0.0;
+float r111=10000.0;    //r1 valor
+float r222=100000.0;      //r2 valor
 const int ampi = A1;   // seleccionar la entrada para el sensor
 int entrada;      // variable que almacena el valor raw (0 a 1023)
 int entrada1;      // variable que almacena el valor raw (0 a 1023)
@@ -39,12 +42,19 @@ contador = 1;
 if(ampi == 1){
   contador = 2;
 }
-  entrada = analogRead(volti_ampi);        // realizar la lectura
+    int analogvalue = analogRead(A0);
+    temp = (analogvalue * 5.0) / 1024.0;       // 
+    input_volt = temp / (r222/(r111+r222));
   entrada1 = analogRead(ampi);        // realizar la lectura
 
 if(contador == 1){
-  volt = (entrada - 0) * (25.0 - 0.0) / (1023 - 0) + 0.0;   // cambiar escala a 0.0 - 25.0
-  Serial.println(volt); 
+if (input_volt < 0.1) 
+   {
+     input_volt=0.0;
+   } 
+    Serial.print("v= ");                 // 
+    Serial.println(input_volt);
+
 }
 if(contador == 2){
   float voltajeSensor= entrada1*(5.0 / 1023.0); //lectura del sensor   
