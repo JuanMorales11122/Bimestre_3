@@ -20,7 +20,6 @@ void setup() {
   pinMode(botonResist,INPUT);
   pinMode(voltimetro,INPUT);
 pinMode(amperimetro,INPUT);
-  r2 = 10000; // R2 = 10KΩ
 }
 
 void loop() {
@@ -50,16 +49,7 @@ if(contador == 2){
   Serial.println(I,3);
 }
   if(contador == 3){
-  valorSensor= analogRead(sensorPin); // Lee el valor del pin analogico A0
-
-voltaje = (valorSensor*5.0/1023.0); // Calcula el voltaje
-r1 = (voltaje*r2)/(5-voltaje);
-Serial.print("Vout = ");
-Serial.print(voltaje);
-Serial.print("V | R1 = ");
-Serial.print(r1);
-Serial.println("Ω");
-delay(1000);
+  ohimetro;
   }
 }
 
