@@ -45,12 +45,15 @@ if(contador == 2){
 }
 
 void voltimetro(){
-contador = 1;
 contador1 = 0;
+contador = 1;
+
 }
 void amperimetro(){
-contador = 2;
 contador1 = 0;
+
+  contador = 2;
+
 }
 
 
