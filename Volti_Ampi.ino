@@ -23,14 +23,17 @@ pinMode(amperimetro,INPUT);
 }
 
 void loop() {
-  if(botonResist == 1){
+ int ohmi = digitalRead(botonResist);
+int volti = digitalRead(voltimetro);
+int ampi = digitalRead(amperimetro);
+  if(ohmi == 1){
 contador = 3;
 }
-if(voltimetro == 1){
+if(volti == 1){
 contador = 1;
 
 }
-if(amperimetro == 1){
+if(ampi == 1){
   contador = 2;
 }
   entrada = analogRead(volti_ampi);        // realizar la lectura
