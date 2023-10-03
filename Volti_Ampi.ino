@@ -21,7 +21,9 @@ void setup() {
 }
 
 void loop() {
-  
+  if(botonResist == 1){
+contador = 3;
+}
   entrada = analogRead(volti_ampi);        // realizar la lectura
   entrada1 = analogRead(ampi);        // realizar la lectura
 
@@ -46,11 +48,7 @@ contador = 1;
 void amperimetro(){
 contador = 2;
 }
-void resist(){
-if(botonResist == 1){
-contador = 3;
-}
-}
+
 
  void ohimetro(){
       // Leemos el valor en el pin A5
