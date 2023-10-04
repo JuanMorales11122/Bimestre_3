@@ -43,6 +43,8 @@ if(ampi == 1){
     input_volt = temp / (r222/(r111+r222));
   entrada1 = analogRead(ampi);        // realizar la lectura
 
+Serial.print("H");
+
 if(contador == 1){
 if (input_volt < 0.1) 
    {
@@ -64,6 +66,5 @@ Serial.print(r1);
 delay(1000);
   }
 }
-
 
 
