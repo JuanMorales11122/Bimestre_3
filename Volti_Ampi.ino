@@ -1,4 +1,5 @@
-
+#include <SoftwareSerial.h>
+SoftwareSerial hc06(10,11);
 float input_volt = 0.0;
 float temp=0.0;
 float r111=10000.0;    //r1 valor
@@ -18,6 +19,7 @@ float voltaje, r1, r2;
 
 void setup() {
   Serial.begin(9600);
+  hc06.begin(38400);
   pinMode(botonResist,INPUT);
   pinMode(voltimetro,INPUT);
 pinMode(amperimetro,INPUT);
@@ -43,7 +45,6 @@ if(ampi == 1){
     input_volt = temp / (r222/(r111+r222));
   entrada1 = analogRead(ampi);        // realizar la lectura
 
-Serial.print("H");
 
 if(contador == 1){
 if (input_volt < 0.1) 
@@ -51,20 +52,23 @@ if (input_volt < 0.1)
      input_volt=0.0;
    } 
     Serial.print(input_volt);
-
+    if(Serial.available())
+  hc06.write(Serial.read());
 }
 if(contador == 2){
   float voltajeSensor= entrada1*(5.0 / 1023.0); //lectura del sensor   
   float I=(voltajeSensor-2.5)/Sensibilidad; //Ecuación  para obtener la corriente
   Serial.print(I,3);
+      if(Serial.available())
+  hc06.write(Serial.read());
 }
   if(contador == 3){
   valorSensor= analogRead(sensorPin); // Lee el valor del pin analogico A0
 voltaje = (valorSensor*5.0/1023.0); // Calcula el voltaje
 r1 = (voltaje*r2)/(5-voltaje);
 Serial.print(r1);
-delay(1000);
+    if(Serial.available())
+  hc06.write(Serial.read());
   }
 }
-
 
